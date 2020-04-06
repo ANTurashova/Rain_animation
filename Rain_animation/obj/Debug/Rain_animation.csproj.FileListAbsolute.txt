@@ -1,0 +1,10 @@
+D:\Coding\Rain_animation\Rain_animation\bin\Debug\Rain_animation.exe.config
+D:\Coding\Rain_animation\Rain_animation\bin\Debug\Rain_animation.exe
+D:\Coding\Rain_animation\Rain_animation\bin\Debug\Rain_animation.pdb
+D:\Coding\Rain_animation\Rain_animation\obj\Debug\Rain_animation.csprojAssemblyReference.cache
+D:\Coding\Rain_animation\Rain_animation\obj\Debug\Rain_animation.Form1.resources
+D:\Coding\Rain_animation\Rain_animation\obj\Debug\Rain_animation.Properties.Resources.resources
+D:\Coding\Rain_animation\Rain_animation\obj\Debug\Rain_animation.csproj.GenerateResource.cache
+D:\Coding\Rain_animation\Rain_animation\obj\Debug\Rain_animation.csproj.CoreCompileInputs.cache
+D:\Coding\Rain_animation\Rain_animation\obj\Debug\Rain_animation.exe
+D:\Coding\Rain_animation\Rain_animation\obj\Debug\Rain_animation.pdb
