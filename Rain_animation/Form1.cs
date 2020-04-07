@@ -14,13 +14,14 @@ namespace Rain_animation
     public partial class Form1 : Form
     {
         private Animator a;
-        private bool stop = true;
         private Thread t;
+        private bool stop = true;
 
         public Form1()
         {
             InitializeComponent();
-         
+            a = new Animator(panelMain.CreateGraphics(), panelMain.ClientRectangle); //возвращает прямоугольник, представляющий клиентскую область элемента управления (гарант что останется)
+            a.Lvl = 30;
         }
 
         private void Move() //двигает капли (вниз)
@@ -28,7 +29,7 @@ namespace Rain_animation
             while (!stop)
             {
                 Thread.Sleep(150); //Thread.Sleep() = приостановка потока в миллисек 
-               
+                a.Start();
             }
         }
 
@@ -37,52 +38,44 @@ namespace Rain_animation
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //запуск при клике
         {
-
+            Start();
+        }
+        private void button2_Click(object sender, EventArgs e) //удалить всё и запустить последнюю капельку :D (Это не баг, а фича!) 
+        {
+            stop = true;    
+            Stop();
         }
 
         private void panelMain_Resize(object sender, EventArgs e) //При изменении размера формы перерисовывает область отрисовки
         {
             if (this.WindowState != System.Windows.Forms.FormWindowState.Minimized && a != null)
             {
-                
+                a.Update(panelMain.CreateGraphics(), panelMain.ClientRectangle);
             } 
         } 
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-           
+            Drop.dx = trackBar1.Value - 10; //позволяет получить отрицательное значение перемещения
         }
 
-        
-
-        private void panelMain_MouseClick(object sender, MouseEventArgs e)
+        private void Start()  //Продублированно из Animator.cs, но для Move
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                stop = true;    //правая кропка - стоп
-                Stop();
-            }
-            else if (e.Button == MouseButtons.Left) //левая кнопка - старт 
-            {
-                Start();
-            } 
-        }
-
-        private void Start() //для запуска дождя
-        {
-            if (t == null || !t.IsAlive) //IsAlive = true, если поток запущен, else false 
+            if (t == null || !t.IsAlive) 
             {
                 stop = false;
-                ThreadStart th = new ThreadStart(Move); //ThreadStart = состояние выполнения объекта Thread (старт) 
-                t = new Thread(th); //Thread = создаёт и контролирует поток, задаёт приоритет и возвращает статус 
+                ThreadStart th = new ThreadStart(Move); 
+                t = new Thread(th); 
                 t.Start();
             } 
         }
-        private void Stop()
+        
+        private void Stop() //Продублированно из Animator.cs для a
         {
-           
+            stop = true;
+            a.Stop();
         }
     }
 }
