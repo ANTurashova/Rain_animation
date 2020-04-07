@@ -18,11 +18,13 @@ namespace Rain_animation
         private int width, height;    
         private bool stop = false;
         public int Lvl { get; set; }
+        Pen p = new Pen(Color.Blue, 4);
 
         public Animator(Graphics g, Rectangle r)
         {
             Update(g, r);
             b = new SolidBrush(Drop.color); //кисть с заливкой
+  
         }
 
         public void Update(Graphics g, Rectangle r)
@@ -52,9 +54,12 @@ namespace Rain_animation
                     cnt--;
                 }
 
-                foreach (var d in drops)
+                foreach (var d in drops) //отрисовка капелек
                 {
-                    g.FillEllipse(b, d.X, d.Y, d.DropD, d.DropD); //отрисовка кружочков 
+                    g.FillEllipse(b, d.X, d.Y, d.DropD, d.DropD); 
+                    g.DrawLine(p, d.X + 6, d.Y -5, d.X+1, d.Y+5);
+                    g.DrawLine(p, d.X+4, d.Y - 5, d.X +9, d.Y + 5);
+
                 } 
                 try
                 {

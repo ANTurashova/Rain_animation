@@ -28,7 +28,7 @@ namespace Rain_animation
         {
             while (!stop)
             {
-                Thread.Sleep(150); //Thread.Sleep() = приостановка потока в миллисек 
+                Thread.Sleep(400); //Thread.Sleep() = приостановка потока в миллисек 
                 a.Start();
             }
         }
