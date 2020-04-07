@@ -34,10 +34,12 @@ namespace Rain_animation
             width = r.Width;
             height = r.Height;
             bg = BufferedGraphicsManager.Current.Allocate(mainG, new Rectangle(0, 0, width, height)); //BGM позволяет реализовать двойную буферизацию
+            Monitor.Enter(drops);
             foreach (var d in drops) //тут будет отрисовочка 
             {
                 d.Update(r);
-            } 
+            }
+            Monitor.Exit(drops);
         }
         
         private void Animate()
@@ -46,6 +48,7 @@ namespace Rain_animation
             {
                 Graphics g = bg.Graphics;
                 g.Clear(Color.White);
+                Monitor.Enter(drops);
                 int cnt = drops.Count;
 
                 for (int i = 0; i < cnt; i++)
@@ -61,7 +64,8 @@ namespace Rain_animation
                     g.DrawLine(p, d.X + 6, d.Y -5, d.X+1, d.Y+5);
                     g.DrawLine(p, d.X+4, d.Y - 5, d.X +9, d.Y + 5);
 
-                } 
+                }
+                Monitor.Exit(drops);
                 try
                 {
                     bg.Render();
@@ -83,17 +87,21 @@ namespace Rain_animation
             var rect = new Rectangle(0, 0, width, height);
             Drop d = new Drop(rect);
             d.Start();
+            Monitor.Enter(drops);
             drops.Add(d);
+            Monitor.Exit(drops);
         }
         
         public void Stop()
         {
             stop = true;
+            Monitor.Enter(drops);
             foreach (var b in drops)
             {
                 b.Stop();
             }
             drops.Clear();
+            Monitor.Exit(drops);
         }
     }
 }
