@@ -38,7 +38,7 @@
             // button1
             // 
             this.button1.Image = global::Rain_animation.Properties.Resources.start;
-            this.button1.Location = new System.Drawing.Point(12, 481);
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 60);
             this.button1.TabIndex = 0;
@@ -51,9 +51,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMain.BackColor = System.Drawing.Color.White;
-            this.panelMain.Location = new System.Drawing.Point(8, 7);
+            this.panelMain.Location = new System.Drawing.Point(8, 89);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(767, 468);
+            this.panelMain.Size = new System.Drawing.Size(767, 452);
             this.panelMain.TabIndex = 0;
             this.panelMain.Resize += new System.EventHandler(this.panelMain_Resize);
             // 
@@ -63,10 +63,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.BackColor = System.Drawing.Color.White;
             this.trackBar1.LargeChange = 1;
-            this.trackBar1.Location = new System.Drawing.Point(89, 485);
+            this.trackBar1.Location = new System.Drawing.Point(144, 16);
             this.trackBar1.Maximum = 20;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(604, 56);
+            this.trackBar1.Size = new System.Drawing.Size(626, 56);
             this.trackBar1.TabIndex = 1;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar1.Value = 10;
@@ -75,7 +75,7 @@
             // button2
             // 
             this.button2.Image = global::Rain_animation.Properties.Resources.stop;
-            this.button2.Location = new System.Drawing.Point(710, 481);
+            this.button2.Location = new System.Drawing.Point(78, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 60);
             this.button2.TabIndex = 2;

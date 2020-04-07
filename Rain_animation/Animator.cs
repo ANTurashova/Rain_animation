@@ -24,7 +24,8 @@ namespace Rain_animation
         {
             Update(g, r);
             b = new SolidBrush(Drop.color); //кисть с заливкой
-  
+            p = new Pen(Drop.color, 4);
+
         }
 
         public void Update(Graphics g, Rectangle r)
