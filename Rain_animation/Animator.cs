@@ -34,12 +34,12 @@ namespace Rain_animation
             width = r.Width;
             height = r.Height;
             bg = BufferedGraphicsManager.Current.Allocate(mainG, new Rectangle(0, 0, width, height)); //BGM позволяет реализовать двойную буферизацию
-            Monitor.Enter(drops);
+            Monitor.Enter(drops);  //(1)Если много тыкать по кнопочкам, возникнут проблемы. Эта штука позволяет не допустить ошибки.
             foreach (var d in drops) //тут будет отрисовочка 
             {
                 d.Update(r);
             }
-            Monitor.Exit(drops);
+            Monitor.Exit(drops); //(2)Если много тыкать по кнопочкам, возникнут проблемы. Эта штука позволяет не допустить ошибки. 
         }
         
         private void Animate()

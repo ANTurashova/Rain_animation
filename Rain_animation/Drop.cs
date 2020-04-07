@@ -41,7 +41,7 @@ namespace Rain_animation
         {
             while (!stop && Y < height)
             {
-                Thread.Sleep(10);  //скорость появления 
+                Thread.Sleep(10);  //Остановка потока в миллисек
                 Y += 1;
                 if (dx != 0) 
                 {
